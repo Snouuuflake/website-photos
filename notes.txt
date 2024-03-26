@@ -1,0 +1,12 @@
+---- menu options ----
+nuevo directorio
+	check if directory that is trying to be made already exists.
+
+cargar directorio
+	loads all directories into a dict in alphabetical order w a number as the key
+	user inputs the key to boot program in that directory.
+
+salir
+
+----
+mainpath variable that stores where the images will be saved.
