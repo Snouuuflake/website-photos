@@ -3,11 +3,13 @@ import sys
 import cv2
 
 from dirs import *
-from shoot import *
+from shoot import shoot
 
 # ---- making gui ----
 
 # initializing gui
+
+
 def init_gui():
     os.system("cls")
 
@@ -18,12 +20,11 @@ def menu():
     in_str = ""
     valid_op = False
 
-
-    print("Menú de Inicio:\n", "1. Nuevo Directorio\n", "2. Cargar Directorio\n", "3. Salir\n", "4. changeCamIndex\n")
-
+    print("Menú de Inicio:\n", "1. Nuevo Directorio\n",
+          "2. Cargar Directorio\n", "3. Salir\n", "4. changeCamIndex\n")
 
     while not valid_op:
-        
+
         in_str = input("Opción: ")
 
         if in_str.isdigit():
@@ -31,21 +32,19 @@ def menu():
         else:
             op = -1
 
-
         if op > 0 and op < 5:
             valid_op = True
 
         else:
             print(f"{in_str} no es una opción válida.")
 
-
-    return op        
+    return op
 
 
 # swaps contents of camIndex.txt between 0 and 1
 def changeCamIndex(cI):
     f = open("camIndex.txt", "w")
-    
+
     if cI == 0:
         f.write("1")
     elif cI == 1:
@@ -56,12 +55,13 @@ def changeCamIndex(cI):
     f.close()
 
 # returns camIndex.txt's
+
+
 def getCamIndex():
     f = open("camIndex.txt", "r")
     res = int(f.read(1))
     f.close()
     return res
-
 
 
 # --------------- main ---------------
@@ -87,6 +87,3 @@ elif option == 4:
     changeCamIndex(camIndex)
 else:
     print("how did this happen?")
-
-
-
